@@ -3,10 +3,13 @@ import requests
 import base64
 from requests.auth import HTTPBasicAuth
 import hashlib
-
+import sys
+import ciphers
+import json
 
 
 api_url = 'https://textsecure-service.whispersystems.org'
+confirmkeys = ciphers.CryptoGen()
 
 class WhisperRegister:
 
@@ -19,13 +22,16 @@ class WhisperRegister:
         return r.text
 
     def verify_code(self,verfication_code, phone, password):
+        payload = confirmkeys.gen_sig_key()
         password = hashlib.sha256(password.encode()).hexdigest()[0:16]
-        r = requests.put(api_url+'/v1/accounts/code/', auth=HTTPBasicAuth(phone, password), data=payload)
-
-        payload = {
-            "signalingKey" : "{base64_encoded_52_byte_key}", #signalingKey is a randomly generated 32 byte AES key and a 20 byte HMAC-SHA1 MAC key, concatenated together and Base64 encoded.
-            "supportsSms" : true, #supportsSms indicates whether a client supports SMS as a transport.
-            "registrationId" : "{14-bit number}" #registrationId is a 14 bit integer that's randomly generated at client install time. This will be used for clients to detect whether an app has reinstalled and lost their session state.
-        }
+        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        r = requests.put(api_url+'/v1/accounts/code/'+verfication_code, auth=HTTPBasicAuth(phone, password), json=payload,headers=headers,verify=False)
+        print(r,r.headers,r.status_code,r.content,r.url,r.json(),r.text)
 
 
+def main():
+    number = "+17602624141"
+    register = WhisperRegister()
+    #register.request_code(number)
+    register.verify_code('828-119',number,"p@ssw0rd!@#")
+main()
