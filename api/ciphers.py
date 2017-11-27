@@ -23,4 +23,4 @@ class CryptoGen:
         sig_key_b64 = (base64.b64encode(str(sig_key_hex).encode()))
         payload = {'signalingKey':sig_key_b64.decode(),
                       'supportsSms':False, 'registrationId':static_keys['regid']}
-        return json.dumps(payload)
+        return payload
