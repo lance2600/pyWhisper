@@ -22,7 +22,6 @@ class WhisperRegister:
         return r.text
 
     def verify_code(self,verfication_code, phone, password):
-        import ipdb; ipdb.set_trace()
         payload = confirmkeys.gen_sig_key()
         password = hashlib.sha256(password.encode()).hexdigest()[0:16]
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
@@ -31,8 +30,8 @@ class WhisperRegister:
 
 
 def main():
-    number = "+12037225861"
+    number = ""
     register = WhisperRegister()
     # register.request_code(number)
-    register.verify_code('282819',number,"p@ssw0rd!@#")
+    register.verify_code('',number,"p@ssw0rd!@#")
 main()
