@@ -25,13 +25,13 @@ class WhisperRegister:
         payload = confirmkeys.gen_sig_key()
         password = hashlib.sha256(password.encode()).hexdigest()[0:16]
         headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
-        r = requests.put(api_url+'/v1/accounts/code/'+verfication_code, auth=HTTPBasicAuth(phone, password), json=payload,headers=headers,verify=False)
-        print(r,r.headers,r.status_code,r.content,r.url,r.json(),r.text)
+        req = requests.put(api_url+'/v1/accounts/code/'+verfication_code, auth=HTTPBasicAuth(phone, password), json=payload,headers=headers,verify=False)
+        print(req,req.headers,req.status_code,req.content,req.url,req.json(),req.text)
 
 
 def main():
-    number = "+17602624141"
+    number = ""
     register = WhisperRegister()
-    #register.request_code(number)
-    register.verify_code('828-119',number,"p@ssw0rd!@#")
+    # register.request_code(number)
+    register.verify_code('',number,"p@ssw0rd!@#")
 main()

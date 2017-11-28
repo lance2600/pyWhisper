@@ -3,10 +3,9 @@ from Crypto import Random
 from Crypto.Hash import SHA, SHA256, HMAC
 import base64
 import json
-from random import randint
+import uuid
 
-
-digits = randint(10000000000000,99999999999999)
+digits = uuid.uuid4().int & (1<<14)-1
 static_keys = {'aespass': b'testkey1234567890!@#', 'sha1pass': b'testkey987654321!@#', 'regid':digits}
 
 class CryptoGen:
