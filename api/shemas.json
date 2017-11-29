@@ -1,0 +1,36 @@
+{
+    "Config": [
+        {
+            "init": {
+                "signalingKey": {
+                    "AES": [
+                        "256key"
+                    ],
+                    "HMAC": [
+                        "sha1hmac"
+                    ]
+                }
+            },
+            "registrationId": [
+                "14bitdigit"
+            ],
+            "BasicAuth": [
+                "e164phone",
+                "16bytepassword"
+            ]
+        }
+    ]
+    "PreKeys": [
+        {
+        {"comment":"prekeys are generated x100 under keys section",}
+            "lastResortKey":
+            {"keyid":"0xFFFFFF",
+                "publicKey": "curve25519pubkey",
+                "identityKey": "curve25519identitypubkey"}
+            "keys": [{"keyId":"curve25519pubkey",
+                        "publicKey":"curve25519pubkey","identityKey":"curve25519identitypubkey"}}
+            ]}
+
+    ]
+
+}
