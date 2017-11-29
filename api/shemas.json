@@ -1,7 +1,7 @@
 {
     "Config": [
         {
-            "init": {
+            "registration": {
                 "signalingKey": {
                     "AES": [
                         "256key"
@@ -10,7 +10,7 @@
                         "sha1hmac"
                     ]
                 }
-            },
+            ,
             "registrationId": [
                 "14bitdigit"
             ],
@@ -18,9 +18,7 @@
                 "e164phone",
                 "16bytepassword"
             ]
-        }
-    ]
-    "PreKeys": [
+    "RegPreKeys": [
         {
         {"comment":"prekeys are generated x100 under keys section",}
             "lastResortKey":
@@ -31,5 +29,11 @@
                         "publicKey":"curve25519pubkey","identityKey":"curve25519identitypubkey"}}
             ]}
 
-    ]
+
+  "contacts": [ "token","token","token","..."]
+  ""
+      ]
+            }
+        }
+      ]
 }
