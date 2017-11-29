@@ -28,6 +28,8 @@ class WhisperRegister:
         req = requests.put(api_url+'/v1/accounts/code/'+verfication_code, auth=HTTPBasicAuth(phone, password), json=payload,headers=headers,verify=False)
         print(req,req.headers,req.status_code,req.content,req.url,req.json(),req.text)
 
+    def register_prekeys(self):
+
 ''' Test Code
 def main():
     number = ""

@@ -13,7 +13,7 @@
         "registrationId": [
           "14bitdigit"
         ],
-        "BasicAuth": [
+        "auth": [
           "e164phone",
           "16bytepassword"
         ]
