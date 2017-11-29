@@ -19,9 +19,7 @@
         ]
         "RegPreKeys": [
           {
-          {
-            "comment": "prekeys are generated x100 under keys section"
-          }
+          {"comment": "prekeys are generated x100 under keys section"}
           "lastResortKey"
           :
           {
@@ -29,13 +27,12 @@
             "publicKey": "curve25519pubkey",
             "identityKey": "curve25519identitypubkey"
           }
-          "keys"
-          :
-          [
+          "keys":[
           {
           "keyId": "curve25519pubkey",
-          "publicKey": "curve25519pubkey", "identityKey": "curve25519identitypubkey"}}
-          ]
+          "publicKey": "curve25519pubkey",
+          "identityKey": "curve25519identitypubkey"}
+          }]
         }
 
 
